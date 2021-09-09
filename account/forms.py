@@ -50,3 +50,11 @@ class AccountUpdateForm(forms.ModelForm):
             except Account.DoesNotExist:
                 return username
             raise forms.ValidationError('Username "%s" is already in use.' % username)
+
+    def clean_score(self):
+        if self.is_valid():
+            earned_scores = self.cleaned_data['earned_scores']
+            try:
+                account = Account.objects.exclude(pk=self.instance.pk).get(earned_scores=earned_scores)
+            except Account.DoesNotExist:
+                return earned_scores

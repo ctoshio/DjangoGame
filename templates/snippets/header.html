@@ -33,7 +33,7 @@ crossorigin="anonymous">
     {% if request.user.is_authenticated %}
         <a class="p-2 text-dark" href="{% url 'home' %}">Home</a> 
         <a class="p-2 text-dark" href="{% url 'account' %}">Profile</a>
-        <a class="p-2 text-dark" href="">Play</a> 
+        <a class="p-2 text-dark" href="{% url 'playing' %}">Play</a> 
         <a class="p-2 text-dark" href="">Ranking</a>  
         <a class="p-2 text-dark" href="{% url 'logout' %}">Logout</a>
     {% else %} 

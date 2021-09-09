@@ -23,7 +23,8 @@ from account.views import (
     registration_view,
     logout_view,
     login_view,
-    account_view
+    account_view,
+    playing_view,
 )
 
 
@@ -49,4 +50,6 @@ urlpatterns = [
 
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
      name='password_reset_complete'),
+
+    path('playing/', playing_view, name="playing"),
 ]
