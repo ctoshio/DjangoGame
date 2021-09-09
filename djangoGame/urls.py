@@ -25,6 +25,7 @@ from account.views import (
     login_view,
     account_view,
     playing_view,
+    ranking_view,
 )
 
 
@@ -52,4 +53,6 @@ urlpatterns = [
      name='password_reset_complete'),
 
     path('playing/', playing_view, name="playing"),
+    path('ranking/', ranking_view, name="ranking"),
+
 ]

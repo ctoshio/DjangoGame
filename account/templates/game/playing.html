@@ -31,20 +31,24 @@
     .h3{
         text-align: center;
     }
+    input { 
+    text-align: center; 
+    }
+    
     
 </style>
 
 <form class="form-signin" method="post">
     {% csrf_token %}
     <h1 class="h3 mb-3 font-weight-normal">PLAY</h1>
+    <div class="invisible">
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+        value="{{account_form.initial.email}}" readonly="readonly" type="hidden">
 
-    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
-    value="{{account_form.initial.email}}" readonly="readonly">
-
-    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required 
-    value="{{account_form.initial.username}}" readonly="readonly">
-
-    <input type="text" name="earned_scores" id="playerscards" class="form-control" placeholder="score" 
+        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required 
+        value="{{account_form.initial.username}}" readonly="readonly">
+    </div>
+    <input type="text" name="earned_scores" id="playerscards" class="form-control" placeholder="Hit the button play" 
     readonly="readonly">
     
     {% for field in account_form %}
@@ -62,7 +66,7 @@
     {% endif %}
 
     {% if success_message %}
-    <a href=""><p style="color:green; text-align: center;">{{success_message}}</p></a>
+    <a href="{% url 'ranking' %}"><p style="color:green; text-align: center;">{{success_message}}</p></a>
     {% endif %}
     <button id= "btn1" class="btn btn-lg btn-primary btn-block" onclick="randomScore()" type="submit">Play</button>
     <button id= "btn2" class="btn btn-lg btn-primary btn-block" type="submit">Save your score</button>

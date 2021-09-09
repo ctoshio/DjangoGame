@@ -111,3 +111,10 @@ def playing_view(request):
             )
     context['account_form'] = form
     return render(request, 'game/playing.html', context)
+
+def ranking_view(request):
+    context = {}
+    accounts = Account.objects.order_by('-earned_scores')[:10]
+    context['accounts'] = accounts
+    print(accounts)
+    return render(request, "game/ranking.html", context)  

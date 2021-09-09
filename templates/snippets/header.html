@@ -34,7 +34,7 @@ crossorigin="anonymous">
         <a class="p-2 text-dark" href="{% url 'home' %}">Home</a> 
         <a class="p-2 text-dark" href="{% url 'account' %}">Profile</a>
         <a class="p-2 text-dark" href="{% url 'playing' %}">Play</a> 
-        <a class="p-2 text-dark" href="">Ranking</a>  
+        <a class="p-2 text-dark" href="{% url 'ranking' %}">Ranking</a>  
         <a class="p-2 text-dark" href="{% url 'logout' %}">Logout</a>
     {% else %} 
         <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>   
