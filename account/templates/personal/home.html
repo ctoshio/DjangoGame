@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Django Game</h1>
+    <p>User Registered</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>User</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in accounts %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{c.username}}</td>
+                            <td>{{c.earned_scores}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% endblock content %}
